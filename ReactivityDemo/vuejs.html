@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VueJS</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>VueJS Reactivity</h1>
+
+            <p>{{ inputText }}</p>
+
+            <input type="text" v-model="inputText">
+        </div>
+
+
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            var app = new Vue({
+                // Tell Vue where it should watch for changes.
+                el: '#app',
+
+                // Tell Vue which variables it should keep track of.
+                data: {
+                    inputText: 'Hello Vue!'
+                }
+
+                // To update inputText from the JS console, we can just set
+                // the value of app.inputText directly.
+                // No need for setInputText()!
+            })
+        </script>
+    </body>
+</html>

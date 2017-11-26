@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>Javascript Reactivity</h1>
+
+            <p id="js-label"></p>
+
+            <input type="text" id="js-input">
+        </div>
+
+        <script>
+            // We will keep this variable updated with the value displayed in
+            // the p tag and the input field.
+            var inputText = 'Hello, world!';
+
+            // Updates the variable, p tag, and input field with a new value.
+            // As we create more components that depend on the value of
+            // inputText, this function could get very large.
+            function setInputText(text) {
+                inputText = text;
+                document.getElementById('js-label').innerHTML = text;
+                document.getElementById('js-input').value = text;
+            }
+
+            // Automatically update inputText whenever the user types something
+            // new into the input field.
+            document.getElementById('js-input').addEventListener('input', function () {
+                setInputText(this.value);
+            });
+
+            // Initialize the p tag and input field with the starting value of
+            // inputText.
+            setInputText(inputText);
+        </script>
+    </body>
+</html>

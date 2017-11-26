@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VueJS Core Features</title>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li v-for="message in messages">{{ message }}</li>
+            </ul>
+
+            <input v-model="newMessage">
+            <div v-if="newMessage.length > 0">
+                <button v-on:click="sendMessage">Send</button>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    messages: [
+                        'Hello Vue!',
+                        'Hello, world!',
+                        'The quick brown fox...'
+                    ],
+                    newMessage: ''
+                },
+                methods: {
+                    sendMessage: function () {
+                        this.messages.push(this.newMessage);
+                        this.newMessage = '';
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
